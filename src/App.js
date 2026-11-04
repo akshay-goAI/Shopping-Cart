@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ShoppingCart from './components/ShoppingCart';
-import './styles/App.css';
 
 const App = () => {
+    const [cartItems, setCartItems] = useState([]);
+
+    const handleRemoveItem = (itemId) => {
+        setCartItems(cartItems.filter(item => item.id !== itemId));
+    };
+
     return (
-        <div className="App">
+        <div className="app">
             <h1>Shopping Cart</h1>
-            <ShoppingCart />
+            <ShoppingCart items={cartItems} onRemove={handleRemoveItem} />
         </div>
     );
 };

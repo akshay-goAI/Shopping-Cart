@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const RemoveItem = ({ onRemove }) => {
-    const [itemId, setItemId] = useState('');
-
+const RemoveItem = ({ item, onRemove }) => {
     const handleRemove = () => {
-        if (itemId) {
-            onRemove(itemId);
-            setItemId('');
-        }
+        onRemove(item.id);
     };
 
     return (
-        <div>
-            <input
-                type="text"
-                value={itemId}
-                onChange={(e) => setItemId(e.target.value)}
-                placeholder="Item ID"
-            />
-            <button onClick={handleRemove}>Remove from Cart</button>
+        <div className="remove-item">
+            <span>{item.name}</span>
+            <button onClick={handleRemove}>Remove</button>
         </div>
     );
 };

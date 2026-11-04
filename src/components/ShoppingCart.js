@@ -1,32 +1,17 @@
-import React, { useState } from 'react';
-import AddItem from './AddItem';
+import React from 'react';
 import RemoveItem from './RemoveItem';
-import ViewCart from './ViewCart';
 
-const ShoppingCart = () => {
-    const [cartItems, setCartItems] = useState([]);
-
-    const handleAdd = (item) => {
-        setCartItems((prevItems) => {
-            const existingItem = prevItems.find((i) => i.itemId === item.itemId);
-            if (existingItem) {
-                return prevItems.map((i) => 
-                    i.itemId === item.itemId ? { ...i, quantity: i.quantity + item.quantity } : i
-                );
-            }
-            return [...prevItems, item];
-        });
-    };
-
-    const handleRemove = (itemId) => {
-        setCartItems((prevItems) => prevItems.filter((item) => item.itemId !== itemId));
-    };
-
+const ShoppingCart = ({ items, onRemove }) => {
     return (
-        <div>
-            <AddItem onAdd={handleAdd} />
-            <RemoveItem onRemove={handleRemove} />
-            <ViewCart cartItems={cartItems} />
+        <div className="shopping-cart">
+            <h2>Your Shopping Cart</h2>
+            {items.length === 0 ? (
+                <p>Your cart is empty.</p>
+            ) : (
+                items.map(item => (
+                    <RemoveItem key={item.id} item={item} onRemove={onRemove} />
+                ))
+            )}
         </div>
     );
 };
