@@ -1,0 +1,35 @@
+.app {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.cart-view {
+    margin-top: 20px;
+}
+
+.cart-view h2 {
+    margin-bottom: 10px;
+}
+
+.cart-view ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-view li {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.cart-view button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-view button:hover {
+    background-color: #ff1a1a;
+}
