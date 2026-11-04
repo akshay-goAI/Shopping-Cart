@@ -1,12 +1,15 @@
 import React from 'react';
-import ShoppingCart from './components/ShoppingCart';
-import './styles/App.css';
+import AddItem from './components/AddItem';
+import RemoveItem from './components/RemoveItem';
+import ViewCart from './components/ViewCart';
 
 const App = () => {
     return (
-        <div className="App">
-            <h1>Shopping Cart Application</h1>
-            <ShoppingCart />
+        <div>
+            <h1>Shopping Cart</h1>
+            <AddItem onItemAdded={() => console.log('Item added')} />
+            <RemoveItem onItemRemoved={() => console.log('Item removed')} />
+            <ViewCart />
         </div>
     );
 };
