@@ -1,23 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ViewCart from './ViewCart';
 
-const CartView = ({ cartItems, onRemove }) => {
-    return (
-        <div className="cart-view">
-            <h2>Your Shopping Cart</h2>
-            {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                <ul>
-                    {cartItems.map(item => (
-                        <li key={item.item_id}>
-                            {item.name} - Quantity: {item.quantity}
-                            <button onClick={() => onRemove(item.item_id)}>Remove</button>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-    );
+const CartView = () => {
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        // Simulate fetching cart items from an API
+        const fetchCartItems = async () => {
+            const response = await fetch('/api/cart/view'); // Adjust API endpoint accordingly
+            const data = await response.json();
+            setCartItems(data.cart_items);
+        };
+        fetchCartItems();
+    }, []);
+
+    return <ViewCart cartItems={cartItems} />;
 };
 
 export default CartView;

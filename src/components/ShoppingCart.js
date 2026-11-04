@@ -1,17 +1,11 @@
 import React from 'react';
-import RemoveItem from './RemoveItem';
+import CartView from './CartView';
 
-const ShoppingCart = ({ items, onRemove }) => {
+const ShoppingCart = () => {
     return (
-        <div className="shopping-cart">
-            <h2>Your Shopping Cart</h2>
-            {items.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                items.map(item => (
-                    <RemoveItem key={item.id} item={item} onRemove={onRemove} />
-                ))
-            )}
+        <div>
+            <h2>Shopping Cart</h2>
+            <CartView />
         </div>
     );
 };
