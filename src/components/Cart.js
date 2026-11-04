@@ -1,29 +1,12 @@
-import React, { useState } from 'react';
-import AddItem from './AddItem';
+import React from 'react';
+import ShoppingCart from './ShoppingCart';
+import ViewCart from './ViewCart';
 
-const Cart = () => {
-    const [items, setItems] = useState([]);
-
-    const handleAddItem = (item) => {
-        setItems((prevItems) => [...prevItems, item]);
-    };
-
-    const handleRemoveItem = (itemId) => {
-        setItems((prevItems) => prevItems.filter(item => item.itemId !== itemId));
-    };
-
+const Cart = ({ items, onRemove }) => {
     return (
-        <div>
-            <h1>Shopping Cart</h1>
-            <AddItem onAdd={handleAddItem} />
-            <ul>
-                {items.map((item, index) => (
-                    <li key={index}>
-                        Item ID: {item.itemId}, Quantity: {item.quantity}
-                        <button onClick={() => handleRemoveItem(item.itemId)}>Remove</button>
-                    </li>
-                ))}
-            </ul>
+        <div className="cart">
+            <ShoppingCart items={items} onRemove={onRemove} />
+            <ViewCart items={items} />
         </div>
     );
 };
