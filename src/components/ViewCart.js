@@ -9,7 +9,7 @@ const ViewCart = ({ cartItems }) => {
             ) : (
                 <ul>
                     {cartItems.map((item) => (
-                        <li key={item.itemId}>{item.itemId} (Quantity: {item.quantity})</li>
+                        <li key={item.itemId}>{item.itemId} - Quantity: {item.quantity}</li>
                     ))}
                 </ul>
             )}

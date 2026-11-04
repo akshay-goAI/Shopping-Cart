@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const RemoveItem = ({ onRemove }) => {
     const [itemId, setItemId] = useState('');
