@@ -1,11 +1,16 @@
-import React from 'react';
-import CartView from './CartView';
+import React, { useState } from 'react';
+import ViewCart from './ViewCart';
 
 const ShoppingCart = () => {
+    const [cartItems, setCartItems] = useState([]);
+
+    const handleRemoveItem = (itemId) => {
+        setCartItems(cartItems.filter(item => item.item_id !== itemId));
+    };
+
     return (
-        <div>
-            <h2>Shopping Cart</h2>
-            <CartView />
+        <div className="shopping-cart">
+            <ViewCart cartItems={cartItems} onRemoveItem={handleRemoveItem} />
         </div>
     );
 };

@@ -1,12 +1,12 @@
 import React from 'react';
-import CartView from './components/CartView';
+import ShoppingCart from './components/ShoppingCart';
 import './styles/App.css';
 
 const App = () => {
     return (
         <div className="App">
-            <h1>Shopping Cart</h1>
-            <CartView />
+            <h1>Shopping Cart Application</h1>
+            <ShoppingCart />
         </div>
     );
 };
