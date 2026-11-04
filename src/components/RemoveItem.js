@@ -1,14 +1,24 @@
 import React from 'react';
 
-const RemoveItem = ({ item, onRemove }) => {
+const RemoveItem = ({ onRemove }) => {
+    const [itemId, setItemId] = useState('');
+
     const handleRemove = () => {
-        onRemove(item.id);
+        if (itemId) {
+            onRemove(itemId);
+            setItemId('');
+        }
     };
 
     return (
-        <div className='remove-item'>
-            <span>{item.name}</span>
-            <button onClick={handleRemove}>Remove</button>
+        <div>
+            <input
+                type="text"
+                value={itemId}
+                onChange={(e) => setItemId(e.target.value)}
+                placeholder="Item ID"
+            />
+            <button onClick={handleRemove}>Remove from Cart</button>
         </div>
     );
 };
