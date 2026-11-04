@@ -1,15 +1,15 @@
 import React from 'react';
 
-const ViewCart = ({ items }) => {
+const ViewCart = ({ cartItems }) => {
     return (
-        <div className="view-cart">
-            <h2>Your Cart Items</h2>
-            {items.length === 0 ? (
-                <p>No items in the cart.</p>
+        <div>
+            <h2>Your Cart</h2>
+            {cartItems.length === 0 ? (
+                <p>Your cart is empty.</p>
             ) : (
                 <ul>
-                    {items.map(item => (
-                        <li key={item.id}>{item.name}</li>
+                    {cartItems.map(item => (
+                        <li key={item.item_id}>{item.name} - Quantity: {item.quantity}</li>
                     ))}
                 </ul>
             )}
