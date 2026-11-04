@@ -26,7 +26,7 @@ const AddItem = ({ onAdd }) => {
                 onChange={(e) => setQuantity(e.target.value)}
                 min="1"
             />
-            <button onClick={handleAdd}>Add Item</button>
+            <button onClick={handleAdd}>Add to Cart</button>
         </div>
     );
 };
